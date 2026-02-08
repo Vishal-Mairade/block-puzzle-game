@@ -143,3 +143,56 @@ h2 {
 #best {
     color: #5a2e0f;
 }
+
+/* Place Animation */
+
+.place-anim {
+    animation: popPlace 0.15s ease;
+}
+
+@keyframes popPlace {
+    0% {
+        transform: scale(0.8);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Clear Effect */
+
+.glow {
+    box-shadow: 0 0 25px gold;
+}
+
+/* Bonus Text */
+
+.bonus {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff9800;
+    pointer-events: none;
+    display: none;
+    animation: floatUp 1s ease;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -40px);
+    }
+}

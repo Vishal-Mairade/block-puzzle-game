@@ -10,6 +10,7 @@ const popup = document.getElementById("gameOver");
 const finalScore = document.getElementById("finalScore");
 const highScoreTxt = document.getElementById("highScore");
 const restartBtn = document.getElementById("restartBtn");
+const bonusDiv = document.getElementById("bonus");
 
 let highScore = localStorage.getItem("highscore") || 0;
 bestDiv.innerText = "Best: " + highScore;
@@ -225,6 +226,13 @@ function place(shape, r, c) {
 
     placeSound.play();
 
+    canvas.classList.add("place-anim");
+
+    setTimeout(() => {
+        canvas.classList.remove("place-anim");
+    }, 150);
+
+
     for (let y = 0; y < shape.length; y++) {
         for (let x = 0; x < shape[0].length; x++) {
 
@@ -287,7 +295,14 @@ function clearLines() {
     }
 
     if (cleared) {
+        canvas.classList.add("glow");
+
+        setTimeout(() => {
+            canvas.classList.remove("glow");
+        }, 300);
+
         clearSound.play();
+        showBonus("+10");
     }
 }
 
@@ -352,6 +367,16 @@ function gameOver() {
     highScoreTxt.innerText = highScore;
 
     popup.style.display = "flex";
+}
+
+function showBonus(text) {
+
+    bonusDiv.innerText = text;
+    bonusDiv.style.display = "block";
+
+    setTimeout(() => {
+        bonusDiv.style.display = "none";
+    }, 1000);
 }
 
 
