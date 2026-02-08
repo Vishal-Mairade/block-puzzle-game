@@ -267,6 +267,7 @@ function clearLines() {
 
     let cleared = false;
 
+    // Rows
     for (let i = 0; i < SIZE; i++) {
         if (board[i].every(v => v)) {
             board[i].fill(0);
@@ -275,6 +276,7 @@ function clearLines() {
         }
     }
 
+    // Cols
     for (let j = 0; j < SIZE; j++) {
 
         let full = true;
@@ -294,17 +296,32 @@ function clearLines() {
         }
     }
 
+    // Smooth UI Update
     if (cleared) {
-        canvas.classList.add("glow");
 
-        setTimeout(() => {
-            canvas.classList.remove("glow");
-        }, 300);
+        requestAnimationFrame(() => {
 
-        clearSound.play();
-        showBonus("+10");
+            drawBoard();
+
+            // Glow
+            canvas.classList.add("glow");
+
+            setTimeout(() => {
+                canvas.classList.remove("glow");
+            }, 200);
+
+            // Sound
+            clearSound.currentTime = 0;
+            clearSound.play();
+
+            // Bonus
+            showBonus("+10");
+
+        });
+
     }
 }
+
 
 
 function getTouchPos(e) {
