@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Block Puzzle Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="game">
+
+        <h2>🧩 Block Puzzle</h2>
+        <div class="top-bar">
+            <div id="score">Score: 0</div>
+            <div id="best">Best: 0</div>
+        </div>
+
+        <div class="board-box">
+            <canvas id="board" width="360" height="360"></canvas>
+        </div>
+
+        <div id="blocks"></div>
+
+    </div>
+
+    <!-- Game Over Popup -->
+    <div id="gameOver" class="popup">
+
+        <div class="popup-box">
+
+            <h2>Game Over 😢</h2>
+
+            <p>Score: <span id="finalScore">0</span></p>
+            <p>High Score: <span id="highScore">0</span></p>
+
+            <button id="restartBtn">Restart 🔁</button>
+
+        </div>
+
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>

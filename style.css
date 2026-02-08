@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5deb3;
+    touch-action: manipulation;
+}
+
+/* Main Game Box */
+.game {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+/* Title */
+h2 {
+    margin: 8px 0 2px;
+    font-size: 22px;
+}
+
+#score {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+/* Board */
+.board-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#board {
+    background: #deb887;
+    border: 4px solid #8b5a2b;
+    width: 90vw;
+    max-width: 360px;
+    aspect-ratio: 1/1;
+}
+
+/* Blocks Area */
+#blocks {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    max-width: 320px;
+}
+
+
+/* Block Slot */
+.block {
+    width: 90px;
+    height: 90px;
+    cursor: grab;
+    touch-action: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Mobile Fine Tuning */
+@media(max-width:600px) {
+
+    h2 {
+        font-size: 20px;
+    }
+
+    #score {
+        font-size: 15px;
+    }
+
+    #blocks {
+        gap: 8px;
+    }
+}
+
+@media(max-width:500px) {
+    .block {
+        width: 75px;
+        height: 75px;
+    }
+}
+
+/* Game Over Popup */
+
+.popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.popup-box {
+    background: #fff3d6;
+    padding: 25px 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.popup-box h2 {
+    margin: 0 0 10px;
+}
+
+.popup-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #8b4513;
+    color: white;
+    cursor: pointer;
+}
+
+.popup-box button:active {
+    transform: scale(0.95);
+}
+
+/* Top Bar */
+
+.top-bar {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#best {
+    color: #5a2e0f;
+}
